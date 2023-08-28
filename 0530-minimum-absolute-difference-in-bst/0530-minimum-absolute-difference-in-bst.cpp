@@ -15,14 +15,20 @@ public:
     int preval = -1;
     void fn(TreeNode* root){
         if (root == nullptr) return;
-        fn(root->left);
+        
+        if(root->left != nullptr){
+            fn(root->left);
+        }
         
         if (preval != -1){
             if(mini > root->val-preval) mini = root->val-preval;
         }
         preval = root->val;
         
-        fn(root->right);
+        if(root->right != nullptr){
+            fn(root->right);
+        }
+
     }
         
         
